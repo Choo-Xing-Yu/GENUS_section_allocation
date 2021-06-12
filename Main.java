@@ -15,14 +15,14 @@ public class Main {
                 }
                 String[] values = line.split(",");
 
-                int randomNum = ThreadLocalRandom.current().nextInt(0, 11);
+                // int randomNum = ThreadLocalRandom.current().nextInt(0, 11);
 
                 String name = values[0];
                 String previousSection = values[1].toUpperCase();
                 String firstChoice = values[2].toUpperCase();
                 String secondChoice = values[3].toUpperCase();
                 String thirdChoice = values[4].toUpperCase();
-                int ability = randomNum;
+                int ability = Integer.parseInt(values[5]);
 
                 List<String> choice = List.of(firstChoice, secondChoice, thirdChoice);
                 Member m = new Member(name, previousSection, choice, ability);
