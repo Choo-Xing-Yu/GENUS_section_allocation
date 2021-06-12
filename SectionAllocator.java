@@ -42,21 +42,24 @@ public class SectionAllocator {
         this.altoOnePQ = new PriorityQueue<>(new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                return (int) Math.floor(m2.points.get(Section.ALTO_ONE) - m1.points.get(Section.ALTO_ONE));
+                return (int) Math
+                        .floor(m2.points.get(Section.ALTO_ONE) - m1.points.get(Section.ALTO_ONE));
             }
         });
 
         this.altoTwoPQ = new PriorityQueue<>(new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                return (int) Math.floor(m2.points.get(Section.ALTO_TWO) - m1.points.get(Section.ALTO_TWO));
+                return (int) Math
+                        .floor(m2.points.get(Section.ALTO_TWO) - m1.points.get(Section.ALTO_TWO));
             }
         });
 
         this.primePQ = new PriorityQueue<>(new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                return (int) Math.floor(m2.points.get(Section.PRIME) - m1.points.get(Section.PRIME));
+                return (int) Math
+                        .floor(m2.points.get(Section.PRIME) - m1.points.get(Section.PRIME));
             }
         });
 
@@ -70,14 +73,16 @@ public class SectionAllocator {
         this.contrabassPQ = new PriorityQueue<>(new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                return (int) Math.floor(m2.points.get(Section.CONTRABASS) - m1.points.get(Section.CONTRABASS));
+                return (int) Math.floor(
+                        m2.points.get(Section.CONTRABASS) - m1.points.get(Section.CONTRABASS));
             }
         });
 
         this.guitarronPQ = new PriorityQueue<>(new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                return (int) Math.floor(m2.points.get(Section.GUITARRON) - m1.points.get(Section.GUITARRON));
+                return (int) Math
+                        .floor(m2.points.get(Section.GUITARRON) - m1.points.get(Section.GUITARRON));
             }
         });
 
@@ -90,7 +95,8 @@ public class SectionAllocator {
         this.sectionToPQ.put(Section.GUITARRON, this.guitarronPQ);
 
         this.listOfPQ = new ArrayList<>();
-        this.listOfPQ.addAll(List.of(altoOnePQ, altoTwoPQ, primePQ, bassPQ, contrabassPQ, guitarronPQ));
+        this.listOfPQ
+                .addAll(List.of(altoOnePQ, altoTwoPQ, primePQ, bassPQ, contrabassPQ, guitarronPQ));
 
         double a1Percent = 0.2;
         double a2Percent = 0.2;
@@ -99,14 +105,22 @@ public class SectionAllocator {
         double contraPercent = 0.075;
         double guitarronPercent = 0.075;
 
-        this.numAltoOneMember = Math.min(section.numAltoOneGuitar, (int) Math.round(a1Percent * this.NUMBER_OF_MEMBERS));
-        this.numAltoTwoMember = Math.min(section.numAltoTwoGuitar, (int) Math.round(a2Percent * this.NUMBER_OF_MEMBERS));
-        this.numPrimeMember = Math.min(section.numPrimeGuitar, (int) Math.round(primePercent * this.NUMBER_OF_MEMBERS));
-        this.numBassMember = Math.min(section.numBassGuitar, (int) Math.round(bassPercent * this.NUMBER_OF_MEMBERS));
-        this.numContrabassMember = Math.min(section.numContrabassGuitar, (int) Math.round(contraPercent * this.NUMBER_OF_MEMBERS));
-        this.numGuitarronMember = Math.min(section.numGuitarron, (int) Math.round(guitarronPercent * this.NUMBER_OF_MEMBERS));
+        this.numAltoOneMember = Math.min(section.numAltoOneGuitar,
+                (int) Math.round(a1Percent * this.NUMBER_OF_MEMBERS));
+        this.numAltoTwoMember = Math.min(section.numAltoTwoGuitar,
+                (int) Math.round(a2Percent * this.NUMBER_OF_MEMBERS));
+        this.numPrimeMember = Math.min(section.numPrimeGuitar,
+                (int) Math.round(primePercent * this.NUMBER_OF_MEMBERS));
+        this.numBassMember = Math.min(section.numBassGuitar,
+                (int) Math.round(bassPercent * this.NUMBER_OF_MEMBERS));
+        this.numContrabassMember = Math.min(section.numContrabassGuitar,
+                (int) Math.round(contraPercent * this.NUMBER_OF_MEMBERS));
+        this.numGuitarronMember = Math.min(section.numGuitarron,
+                (int) Math.round(guitarronPercent * this.NUMBER_OF_MEMBERS));
 
-        int numAllocatedMembers = this.numAltoOneMember + this.numAltoTwoMember + this.numPrimeMember + this.numBassMember + this.numContrabassMember + this.numGuitarronMember;
+        int numAllocatedMembers =
+                this.numAltoOneMember + this.numAltoTwoMember + this.numPrimeMember
+                        + this.numBassMember + this.numContrabassMember + this.numGuitarronMember;
         if (numAllocatedMembers != this.NUMBER_OF_MEMBERS) {
             // fill up alto 1
             this.numAltoOneMember += this.NUMBER_OF_MEMBERS - numAllocatedMembers;
@@ -122,8 +136,7 @@ public class SectionAllocator {
     }
 
     public String allocate() throws Exception {
-        for(Member m : this.members) {
-            m.generatePoints();
+        for (Member m : this.members) {
             this.altoOnePQ.add(m);
             this.altoTwoPQ.add(m);
             this.primePQ.add(m);
@@ -144,7 +157,7 @@ public class SectionAllocator {
                 allocation.add(m);
             }
         }
-        
+
         String report = "";
         String a1 = Section.ALTO_ONE + "(" + Integer.toString(this.numAltoOneMember) + ")" + "\n";
         for (Member a1Players : this.allocations.get(Section.ALTO_ONE)) {
@@ -162,15 +175,18 @@ public class SectionAllocator {
         for (Member bassPlayers : this.allocations.get(Section.BASS)) {
             bass += bassPlayers.toString() + "\n";
         }
-        String contrabass = Section.CONTRABASS + "(" + Integer.toString(this.numContrabassMember) + ")" + "\n";
+        String contrabass =
+                Section.CONTRABASS + "(" + Integer.toString(this.numContrabassMember) + ")" + "\n";
         for (Member contraPlayer : this.allocations.get(Section.CONTRABASS)) {
             contrabass += contraPlayer.toString() + "\n";
         }
-        String guitarron = Section.GUITARRON + "(" + Integer.toString(this.numGuitarronMember) + ")" + "\n";
+        String guitarron =
+                Section.GUITARRON + "(" + Integer.toString(this.numGuitarronMember) + ")" + "\n";
         for (Member guitarronPlayer : this.allocations.get(Section.GUITARRON)) {
             guitarron += guitarronPlayer.toString() + "\n";
         }
-        report += a1 + "\n" + a2 + "\n" + prime + "\n" + bass + "\n" + contrabass + "\n" + guitarron;
+        report +=
+                a1 + "\n" + a2 + "\n" + prime + "\n" + bass + "\n" + contrabass + "\n" + guitarron;
 
         return report;
     }

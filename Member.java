@@ -7,9 +7,11 @@ public class Member {
     List<String> choice;
     int ability;
 
-    private static String INVALID_SECTION_MESSAGE = "Invalid Section! Valid sections are " + Section.sections.toString();
+    private static String INVALID_SECTION_MESSAGE =
+            "Invalid Section! Valid sections are " + Section.sections.toString();
 
-    public Member(String name, String previousSection, List<String> choice, int ability) throws Exception{
+    public Member(String name, String previousSection, List<String> choice, int ability)
+            throws Exception {
         this.name = name;
         this.points = new HashMap<>();
         this.points.put(Section.ALTO_ONE, 0.0);
@@ -19,22 +21,22 @@ public class Member {
         this.points.put(Section.CONTRABASS, 0.0);
         this.points.put(Section.GUITARRON, 0.0);
         if (!Section.isValidSection(previousSection)) {
-            throw new Exception(Member.INVALID_SECTION_MESSAGE + " [previousSection]");
+            throw new Exception(
+                    Member.INVALID_SECTION_MESSAGE + " || " + this.name + " || [previousSection]");
         }
         this.previousSection = previousSection;
         for (String section : choice) {
             if (!Section.isValidSection(section)) {
-                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
+                throw new Exception(
+                        Member.INVALID_SECTION_MESSAGE + " || " + this.name + " [choices]");
             }
         }
         this.choice = choice;
         this.ability = ability;
+        this.generatePoints();
     }
 
     public void generatePoints() throws Exception {
-        if (!Section.isValidSection(previousSection)) {
-            throw new Exception(Member.INVALID_SECTION_MESSAGE + " [previousSection]");
-        }
         if (ability < 0 || ability > 10) {
             throw new Exception("Ability should be [0, 10]");
         }
@@ -43,7 +45,7 @@ public class Member {
         // 2) choice [0 - 10]
         // 3) ability [0 - 10]
 
-        // Weightage 
+        // Weightage
         // 40% - previousSectionWeight
         double previousSectionWeight = 0.4;
 
@@ -55,11 +57,8 @@ public class Member {
 
         // =============================== CHOICE ===============================
         double choicePoint = 10 * choiceWeight;
-        for(int i = 0; i < choice.size(); i++) {
+        for (int i = 0; i < choice.size(); i++) {
             String section = choice.get(i);
-            if (!Section.isValidSection(section)) {
-                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
-            }
             Double prevPoint = this.points.get(section);
             this.points.put(section, prevPoint + choicePoint);
             choicePoint /= 2;
@@ -68,7 +67,7 @@ public class Member {
 
         // =============================== ABILITY ===============================
         double abilityPoint = ability * abilityWeight;
-        for(String section : Section.sections) {
+        for (String section : Section.sections) {
             Double prevPoint = this.points.get(section);
             this.points.put(section, prevPoint + abilityPoint);
         }
@@ -77,15 +76,12 @@ public class Member {
         // =============================== PREVIOUS_SECTION ===============================
         double previousSectionSamePoint = 10 * previousSectionWeight;
         double previousSectionSameFamilyPoint = 5 * previousSectionWeight;
-        for(int i = 0; i < choice.size(); i++) {
+        for (int i = 0; i < choice.size(); i++) {
             String section = choice.get(i);
-            if (!Section.isValidSection(section)) {
-                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
-            }
             Double prevPoint = this.points.get(section);
             if (section.equals(previousSection)) {
                 this.points.put(section, prevPoint + previousSectionSamePoint);
-            } else if (Section.isSameFamily(section, previousSection)){
+            } else if (Section.isSameFamily(section, previousSection)) {
                 this.points.put(section, prevPoint + previousSectionSameFamilyPoint);
             }
         }

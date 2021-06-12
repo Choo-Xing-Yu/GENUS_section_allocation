@@ -1,8 +1,8 @@
 import java.io.*;
 import java.util.*;
-public class Main {
-    public static void main(String[] args) throws Exception{
 
+public class Main {
+    public static void main(String[] args) throws Exception {
         List<Member> members = new ArrayList<>();
         boolean isHeader = true;
         try (BufferedReader br = new BufferedReader(new FileReader("./test.csv"))) {
@@ -20,10 +20,10 @@ public class Main {
                 // int randomNum = ThreadLocalRandom.current().nextInt(0, 11);
 
                 String name = values[0];
-                String previousSection = values[1].toUpperCase();
-                String firstChoice = values[2].toUpperCase();
-                String secondChoice = values[3].toUpperCase();
-                String thirdChoice = values[4].toUpperCase();
+                String previousSection = Section.parseSection(values[1]);
+                String firstChoice = Section.parseSection(values[2]);
+                String secondChoice = Section.parseSection(values[3]);
+                String thirdChoice = Section.parseSection(values[4]);
                 int ability = Integer.parseInt(values[5]);
 
                 List<String> choice = List.of(firstChoice, secondChoice, thirdChoice);
