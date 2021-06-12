@@ -7,6 +7,8 @@ public class Member {
     List<String> choice;
     int ability;
 
+    private static String INVALID_SECTION_MESSAGE = "Invalid Section! Valid sections are " + Section.sections.toString();
+
     public Member(String name, String previousSection, List<String> choice, int ability) throws Exception{
         this.name = name;
         this.points = new HashMap<>();
@@ -17,12 +19,12 @@ public class Member {
         this.points.put(Section.CONTRABASS, 0.0);
         this.points.put(Section.GUITARRON, 0.0);
         if (!Section.isValidSection(previousSection)) {
-            throw new Exception("Invalid Section!");
+            throw new Exception(Member.INVALID_SECTION_MESSAGE + " [previousSection]");
         }
         this.previousSection = previousSection;
         for (String section : choice) {
             if (!Section.isValidSection(section)) {
-                throw new Exception("Invalid Section!");
+                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
             }
         }
         this.choice = choice;
@@ -31,7 +33,7 @@ public class Member {
 
     public void generatePoints() throws Exception {
         if (!Section.isValidSection(previousSection)) {
-            throw new Exception(previousSection + " is not a valid section! [previousSection]");
+            throw new Exception(Member.INVALID_SECTION_MESSAGE + " [previousSection]");
         }
         if (ability < 0 || ability > 10) {
             throw new Exception("Ability should be [0, 10]");
@@ -56,7 +58,7 @@ public class Member {
         for(int i = 0; i < choice.size(); i++) {
             String section = choice.get(i);
             if (!Section.isValidSection(section)) {
-                throw new Exception(section + " is not a valid section! [choice]");
+                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
             }
             Double prevPoint = this.points.get(section);
             this.points.put(section, prevPoint + choicePoint);
@@ -78,7 +80,7 @@ public class Member {
         for(int i = 0; i < choice.size(); i++) {
             String section = choice.get(i);
             if (!Section.isValidSection(section)) {
-                throw new Exception(section + " is not a valid section! [choice]");
+                throw new Exception(Member.INVALID_SECTION_MESSAGE + " [choice]");
             }
             Double prevPoint = this.points.get(section);
             if (section.equals(previousSection)) {

@@ -94,17 +94,17 @@ public class SectionAllocator {
 
         double a1Percent = 0.2;
         double a2Percent = 0.2;
-        double primePercent = 0.3;
+        double primePercent = 0.25;
         double bassPercent = 0.2;
-        double contraPercent = 0.05;
-        double guitarronPercent = 0.05;
+        double contraPercent = 0.075;
+        double guitarronPercent = 0.075;
 
-        this.numAltoOneMember = Math.min(section.numAltoOneGuitar, (int) Math.floor(a1Percent * this.NUMBER_OF_MEMBERS));
-        this.numAltoTwoMember = Math.min(section.numAltoTwoGuitar, (int) Math.floor(a2Percent * this.NUMBER_OF_MEMBERS));
-        this.numPrimeMember = Math.min(section.numPrimeGuitar, (int) Math.floor(primePercent * this.NUMBER_OF_MEMBERS));
-        this.numBassMember = Math.min(section.numBassGuitar, (int) Math.floor(bassPercent * this.NUMBER_OF_MEMBERS));
-        this.numContrabassMember = Math.min(section.numContrabassGuitar, (int) Math.floor(contraPercent * this.NUMBER_OF_MEMBERS));
-        this.numGuitarronMember = Math.min(section.numGuitarron, (int) Math.floor(guitarronPercent * this.NUMBER_OF_MEMBERS));
+        this.numAltoOneMember = Math.min(section.numAltoOneGuitar, (int) Math.round(a1Percent * this.NUMBER_OF_MEMBERS));
+        this.numAltoTwoMember = Math.min(section.numAltoTwoGuitar, (int) Math.round(a2Percent * this.NUMBER_OF_MEMBERS));
+        this.numPrimeMember = Math.min(section.numPrimeGuitar, (int) Math.round(primePercent * this.NUMBER_OF_MEMBERS));
+        this.numBassMember = Math.min(section.numBassGuitar, (int) Math.round(bassPercent * this.NUMBER_OF_MEMBERS));
+        this.numContrabassMember = Math.min(section.numContrabassGuitar, (int) Math.round(contraPercent * this.NUMBER_OF_MEMBERS));
+        this.numGuitarronMember = Math.min(section.numGuitarron, (int) Math.round(guitarronPercent * this.NUMBER_OF_MEMBERS));
 
         int numAllocatedMembers = this.numAltoOneMember + this.numAltoTwoMember + this.numPrimeMember + this.numBassMember + this.numContrabassMember + this.numGuitarronMember;
         if (numAllocatedMembers != this.NUMBER_OF_MEMBERS) {

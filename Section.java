@@ -15,22 +15,22 @@ public class Section {
     int numContrabassGuitar;
     int numGuitarron;
 
-    // static List<String> sections = List.of(
-    //     Section.ALTO_ONE,
-    //     Section.ALTO_TWO, 
-    //     Section.PRIME, 
-    //     Section.BASS, 
-    //     Section.CONTRABASS, 
-    //     Section.GUITARRON);
-
     static List<String> sections = List.of(
-        Section.GUITARRON,
-        Section.BASS, 
-        Section.PRIME, 
+        Section.ALTO_ONE,
         Section.ALTO_TWO, 
+        Section.PRIME, 
+        Section.BASS, 
         Section.CONTRABASS, 
-        Section.ALTO_ONE
-        );
+        Section.GUITARRON);
+
+    // static List<String> sections = List.of(
+    //     Section.GUITARRON,
+    //     Section.BASS, 
+    //     Section.PRIME, 
+    //     Section.ALTO_TWO, 
+    //     Section.CONTRABASS, 
+    //     Section.ALTO_ONE
+    //     );
 
     static List<Set<String>> sectionFamilies = List.of(
         Set.of(Section.ALTO_ONE, Section.ALTO_TWO), 
@@ -60,6 +60,5 @@ public class Section {
         this.numBassGuitar = numBassGuitar;
         this.numContrabassGuitar = numContrabassGuitar;
         this.numGuitarron = numGuitarron;
-
     }
 }
