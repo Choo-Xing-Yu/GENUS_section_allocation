@@ -16,7 +16,15 @@ public class Member {
         this.points.put(Section.BASS, 0.0);
         this.points.put(Section.CONTRABASS, 0.0);
         this.points.put(Section.GUITARRON, 0.0);
+        if (!Section.isValidSection(previousSection)) {
+            throw new Exception("Invalid Section!");
+        }
         this.previousSection = previousSection;
+        for (String section : choice) {
+            if (!Section.isValidSection(section)) {
+                throw new Exception("Invalid Section!");
+            }
+        }
         this.choice = choice;
         this.ability = ability;
     }

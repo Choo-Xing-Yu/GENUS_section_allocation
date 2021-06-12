@@ -121,7 +121,7 @@ public class SectionAllocator {
         this.sectionToPax.put(Section.GUITARRON, this.numGuitarronMember);
     }
 
-    public HashMap<String, List<Member>> allocate() throws Exception {
+    public String allocate() throws Exception {
         for(Member m : this.members) {
             m.generatePoints();
             this.altoOnePQ.add(m);
@@ -144,7 +144,34 @@ public class SectionAllocator {
                 allocation.add(m);
             }
         }
+        
+        String report = "";
+        String a1 = Section.ALTO_ONE + "(" + Integer.toString(this.numAltoOneMember) + ")" + "\n";
+        for (Member a1Players : this.allocations.get(Section.ALTO_ONE)) {
+            a1 += a1Players.toString() + "\n";
+        }
+        String a2 = Section.ALTO_TWO + "(" + Integer.toString(this.numAltoTwoMember) + ")" + "\n";
+        for (Member a2Players : this.allocations.get(Section.ALTO_TWO)) {
+            a2 += a2Players.toString() + "\n";
+        }
+        String prime = Section.PRIME + "(" + Integer.toString(this.numPrimeMember) + ")" + "\n";
+        for (Member primePlayers : this.allocations.get(Section.PRIME)) {
+            prime += primePlayers.toString() + "\n";
+        }
+        String bass = Section.BASS + "(" + Integer.toString(this.numBassMember) + ")" + "\n";
+        for (Member bassPlayers : this.allocations.get(Section.BASS)) {
+            bass += bassPlayers.toString() + "\n";
+        }
+        String contrabass = Section.CONTRABASS + "(" + Integer.toString(this.numContrabassMember) + ")" + "\n";
+        for (Member contraPlayer : this.allocations.get(Section.CONTRABASS)) {
+            contrabass += contraPlayer.toString() + "\n";
+        }
+        String guitarron = Section.GUITARRON + "(" + Integer.toString(this.numGuitarronMember) + ")" + "\n";
+        for (Member guitarronPlayer : this.allocations.get(Section.GUITARRON)) {
+            guitarron += guitarronPlayer.toString() + "\n";
+        }
+        report += a1 + "\n" + a2 + "\n" + prime + "\n" + bass + "\n" + contrabass + "\n" + guitarron;
 
-        return this.allocations;
+        return report;
     }
 }
