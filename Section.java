@@ -7,6 +7,7 @@ public class Section {
     static String BASS = "BASS";
     static String CONTRABASS = "CONTRABASS";
     static String GUITARRON = "GUITARRON";
+    static String INVALID_SECTION = "INVALID_SECTION";
 
     int numAltoOneGuitar;
     int numAltoTwoGuitar;
@@ -36,7 +37,7 @@ public class Section {
     }
 
     static boolean isValidSection(String section) {
-        return Section.sections.contains(section);
+        return Section.sections.contains(section.toUpperCase());
     }
 
     static String parseSection(String section) {
@@ -61,7 +62,7 @@ public class Section {
         if (sectionUpper.equals(Section.GUITARRON)) {
             return Section.GUITARRON;
         }
-        return "INVALID_SECTION";
+        return Section.INVALID_SECTION;
     }
 
     Section(int numAltoOneGuitar, int numAltoTwoGuitar, int numPrimeGuitar, int numBassGuitar,
