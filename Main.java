@@ -13,8 +13,11 @@ public class Main {
                     isHeader = false;
                     continue;
                 }
+                int expectedNumberOfColumns = 6;
                 String[] values = line.split(",");
-
+                if (values.length != expectedNumberOfColumns) {
+                    throw new Exception("Make sure there's no comma in any cell");
+                }
                 // int randomNum = ThreadLocalRandom.current().nextInt(0, 11);
 
                 String name = values[0];
