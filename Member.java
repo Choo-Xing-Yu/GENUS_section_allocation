@@ -4,14 +4,24 @@ public class Member {
     String name;
     HashMap<String, Double> points;
     String previousSection;
-    List<String> choice;
+    List<String> choices;
     int ability;
 
     private static String INVALID_SECTION_MESSAGE =
             "Invalid Section! Valid sections are " + Section.sections.toString();
 
-    public Member(String name, String previousSection, List<String> choice, int ability)
+    public Member(String name, String previousSection, List<String> choices, int ability)
             throws Exception {
+        if (!Section.isParsed(previousSection)) {
+            throw new Exception(
+                    "Please use parseSection(section) method on previousSection! || " + name);
+        }
+        for (String choice : choices) {
+            if (!Section.isParsed(choice)) {
+                throw new Exception(
+                        "Please use parseSection(section) method on choices! || " + name);
+            }
+        }
         this.name = name;
         this.points = new HashMap<>();
         this.points.put(Section.ALTO_ONE, 0.0);
@@ -25,13 +35,13 @@ public class Member {
                     Member.INVALID_SECTION_MESSAGE + " || " + this.name + " || [previousSection]");
         }
         this.previousSection = previousSection;
-        for (String section : choice) {
+        for (String section : choices) {
             if (!Section.isValidSection(section)) {
                 throw new Exception(
                         Member.INVALID_SECTION_MESSAGE + " || " + this.name + " [choices]");
             }
         }
-        this.choice = choice;
+        this.choices = choices;
         this.ability = ability;
         this.generatePoints();
     }
@@ -42,28 +52,28 @@ public class Member {
         }
         // Factors
         // 1) previousSection [0 - 10]
-        // 2) choice [0 - 10]
+        // 2) choices [0 - 10]
         // 3) ability [0 - 10]
 
         // Weightage
         // 40% - previousSectionWeight
         double previousSectionWeight = 0.4;
 
-        // 40% - choiceWeight
-        double choiceWeight = 0.4;
+        // 40% - choicesWeight
+        double choicesWeight = 0.4;
 
         // 20% - abilityWeight
         double abilityWeight = 0.2;
 
-        // =============================== CHOICE ===============================
-        double choicePoint = 10 * choiceWeight;
-        for (int i = 0; i < choice.size(); i++) {
-            String section = choice.get(i);
+        // =============================== choices ===============================
+        double choicesPoint = 10 * choicesWeight;
+        for (int i = 0; i < choices.size(); i++) {
+            String section = choices.get(i);
             Double prevPoint = this.points.get(section);
-            this.points.put(section, prevPoint + choicePoint);
-            choicePoint /= 2;
+            this.points.put(section, prevPoint + choicesPoint);
+            choicesPoint /= 2;
         }
-        // =============================== /CHOICE ===============================
+        // =============================== /choices ===============================
 
         // =============================== ABILITY ===============================
         double abilityPoint = ability * abilityWeight;
@@ -76,8 +86,8 @@ public class Member {
         // =============================== PREVIOUS_SECTION ===============================
         double previousSectionSamePoint = 10 * previousSectionWeight;
         double previousSectionSameFamilyPoint = 5 * previousSectionWeight;
-        for (int i = 0; i < choice.size(); i++) {
-            String section = choice.get(i);
+        for (int i = 0; i < choices.size(); i++) {
+            String section = choices.get(i);
             Double prevPoint = this.points.get(section);
             if (section.equals(previousSection)) {
                 this.points.put(section, prevPoint + previousSectionSamePoint);

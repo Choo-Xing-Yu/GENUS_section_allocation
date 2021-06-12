@@ -9,21 +9,22 @@ public class Section {
     static String GUITARRON = "GUITARRON";
     static String INVALID_SECTION = "INVALID_SECTION";
 
-    int numAltoOneGuitar;
-    int numAltoTwoGuitar;
-    int numPrimeGuitar;
-    int numBassGuitar;
-    int numContrabassGuitar;
-    int numGuitarron;
+    public final int numAltoOneGuitar;
+    public final int numAltoTwoGuitar;
+    public final int numPrimeGuitar;
+    public final int numBassGuitar;
+    public final int numContrabassGuitar;
+    public final int numGuitarron;
 
-    static List<String> sections = List.of(Section.ALTO_ONE, Section.ALTO_TWO, Section.PRIME,
+    public static List<String> sections = List.of(Section.ALTO_ONE, Section.ALTO_TWO, Section.PRIME,
             Section.BASS, Section.CONTRABASS, Section.GUITARRON);
 
 
-    static List<Set<String>> sectionFamilies = List.of(Set.of(Section.ALTO_ONE, Section.ALTO_TWO),
-            Set.of(Section.PRIME), Set.of(Section.BASS, Section.CONTRABASS, Section.GUITARRON));
+    public static List<Set<String>> sectionFamilies =
+            List.of(Set.of(Section.ALTO_ONE, Section.ALTO_TWO), Set.of(Section.PRIME),
+                    Set.of(Section.BASS, Section.CONTRABASS, Section.GUITARRON));
 
-    static boolean isSameFamily(String section, String another) throws Exception {
+    public static boolean isSameFamily(String section, String another) throws Exception {
         if (!isValidSection(section) || !isValidSection(another)) {
             throw new Exception("Please enter a valid section! Here's the list of valid sections: "
                     + Section.sections.toString());
@@ -36,11 +37,11 @@ public class Section {
         return false;
     }
 
-    static boolean isValidSection(String section) {
+    public static boolean isValidSection(String section) {
         return Section.sections.contains(section.toUpperCase());
     }
 
-    static String parseSection(String section) {
+    public static String parseSection(String section) {
         String sectionUpper = section.toUpperCase();
         if (sectionUpper.contains("ALTO")
                 && (sectionUpper.contains("ONE") || sectionUpper.contains("1"))) {
@@ -63,6 +64,12 @@ public class Section {
             return Section.GUITARRON;
         }
         return Section.INVALID_SECTION;
+    }
+
+    public static boolean isParsed(String section) {
+        List<String> parsedSections = List.of(Section.ALTO_ONE, Section.ALTO_TWO, Section.PRIME,
+                Section.BASS, Section.CONTRABASS, Section.GUITARRON, Section.INVALID_SECTION);
+        return parsedSections.contains(section.toUpperCase());
     }
 
     Section(int numAltoOneGuitar, int numAltoTwoGuitar, int numPrimeGuitar, int numBassGuitar,
