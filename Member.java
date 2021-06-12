@@ -56,14 +56,14 @@ public class Member {
         // 3) ability [0 - 10]
 
         // Weightage
-        // 40% - previousSectionWeight
-        double previousSectionWeight = 0.4;
+        // 30% - previousSectionWeight
+        double previousSectionWeight = 0.3;
 
         // 40% - choicesWeight
         double choicesWeight = 0.4;
 
-        // 20% - abilityWeight
-        double abilityWeight = 0.2;
+        // 30% - abilityWeight
+        double abilityWeight = 0.3;
 
         // =============================== choices ===============================
         double choicesPoint = 10 * choicesWeight;

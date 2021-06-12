@@ -158,6 +158,17 @@ public class SectionAllocator {
             }
         }
 
+        List<Member> unallocatedMembers = new ArrayList<>();
+        while (!altoOnePQ.isEmpty()) {
+            // there exist someone who is unallocated
+            // doesn't really matter which PQ we use here
+            Member m = altoOnePQ.poll();
+            unallocatedMembers.add(m);
+            for (PriorityQueue<Member> pqs : this.listOfPQ) {
+                pqs.remove(m);
+            }
+        }
+
         String report = "";
         String a1 = Section.ALTO_ONE + "(" + Integer.toString(this.numAltoOneMember) + ")" + "\n";
         for (Member a1Players : this.allocations.get(Section.ALTO_ONE)) {
@@ -185,8 +196,12 @@ public class SectionAllocator {
         for (Member guitarronPlayer : this.allocations.get(Section.GUITARRON)) {
             guitarron += guitarronPlayer.toString() + "\n";
         }
-        report +=
-                a1 + "\n" + a2 + "\n" + prime + "\n" + bass + "\n" + contrabass + "\n" + guitarron;
+        String unallocated = "UNALLOCATED (" + unallocatedMembers.size() + ")" + "\n";
+        for (Member unallocatee : unallocatedMembers) {
+            unallocated += unallocatee.toString() + "\n";
+        }
+        report += a1 + "\n" + a2 + "\n" + prime + "\n" + bass + "\n" + contrabass + "\n" + guitarron
+                + "\n" + unallocated;
 
         return report;
     }
