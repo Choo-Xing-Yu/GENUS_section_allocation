@@ -39,33 +39,23 @@ public class SectionAllocator {
         this.allocations.put(Section.CONTRABASS, new ArrayList<>());
         this.allocations.put(Section.GUITARRON, new ArrayList<>());
 
-        this.altoOnePQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math
-                    .floor(m2.points.get(Section.ALTO_ONE) - m1.points.get(Section.ALTO_ONE));
-        });
+        this.altoOnePQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.ALTO_ONE) - m1.points.get(Section.ALTO_ONE)));
 
-        this.altoTwoPQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math
-                    .floor(m2.points.get(Section.ALTO_TWO) - m1.points.get(Section.ALTO_TWO));
-        });
+        this.altoTwoPQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.ALTO_TWO) - m1.points.get(Section.ALTO_TWO)));
 
-        this.primePQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math.floor(m2.points.get(Section.PRIME) - m1.points.get(Section.PRIME));
-        });
+        this.primePQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.PRIME) - m1.points.get(Section.PRIME)));
 
-        this.bassPQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math.floor(m2.points.get(Section.BASS) - m1.points.get(Section.BASS));
-        });
+        this.bassPQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.BASS) - m1.points.get(Section.BASS)));
 
-        this.contrabassPQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math
-                    .floor(m2.points.get(Section.CONTRABASS) - m1.points.get(Section.CONTRABASS));
-        });
+        this.contrabassPQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.CONTRABASS) - m1.points.get(Section.CONTRABASS)));
 
-        this.guitarronPQ = new PriorityQueue<>((Member m1, Member m2) -> {
-            return (int) Math
-                    .floor(m2.points.get(Section.GUITARRON) - m1.points.get(Section.GUITARRON));
-        });
+        this.guitarronPQ = new PriorityQueue<>((Member m1, Member m2) -> (int) Math
+                .floor(m2.points.get(Section.GUITARRON) - m1.points.get(Section.GUITARRON)));
 
         this.sectionToPQ = new HashMap<>();
         this.sectionToPQ.put(Section.ALTO_ONE, this.altoOnePQ);
