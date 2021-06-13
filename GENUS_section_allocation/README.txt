@@ -4,5 +4,4 @@
         1.2.1) Column1: name, Column2: previousSection, Column3: 1st Preference, Column4: 2nd Preference, Column5: 3rd Preference
             *column headers doesn't actually matter, allocator will ignore first row
 2) run start.bat
-3) ???
-4) stonks
+3) after program terminates, it'll store the result in ./allocation.txt
