@@ -20,6 +20,7 @@ public class Section {
     // Section.PRIME,
     // Section.BASS, Section.CONTRABASS, Section.GUITARRON);
 
+    // reverse order makes more sense because we have lesser guitarrons
     public static List<String> sections = List.of(Section.GUITARRON, Section.CONTRABASS,
             Section.BASS, Section.PRIME, Section.ALTO_TWO, Section.ALTO_ONE);
 

@@ -5,13 +5,12 @@ public class Member {
     HashMap<String, Double> points;
     String previousSection;
     List<String> choices;
-    int ability;
+    // int ability;
 
     private static String INVALID_SECTION_MESSAGE =
             "Invalid Section! Valid sections are " + Section.sections.toString();
 
-    public Member(String name, String previousSection, List<String> choices, int ability)
-            throws Exception {
+    public Member(String name, String previousSection, List<String> choices) throws Exception {
         if (!Section.isParsed(previousSection)) {
             throw new Exception(
                     "Please use parseSection(section) method on previousSection! || " + name);
@@ -42,25 +41,26 @@ public class Member {
             }
         }
         this.choices = choices;
-        this.ability = ability;
-        this.generatePoints();
+        // this.ability = ability;
+        // this.generatePoints();
     }
 
-    public void generatePoints() throws Exception {
-        if (ability < 0 || ability > 10) {
-            throw new Exception("Ability should be [0, 10]");
-        }
+    public void generatePoints(double previousSectionWeight, double choicesWeight)
+            throws Exception {
+        // if (ability < 0 || ability > 10) {
+        // throw new Exception("Ability should be [0, 10]");
+        // }
         // Factors
         // 1) previousSection [0 - 10]
         // 2) choices [0 - 10]
         // 3) ability [0 - 10]
 
-        // Weightage
-        // 50% - previousSectionWeight
-        double previousSectionWeight = 0.5;
+        // // Weightage
+        // // 50% - previousSectionWeight
+        // double previousSectionWeight = 0.5;
 
-        // 50% - choicesWeight
-        double choicesWeight = 0.5;
+        // // 50% - choicesWeight
+        // double choicesWeight = 0.5;
 
         // // 30% - abilityWeight
         // double abilityWeight = 0.3;
