@@ -1,0 +1,1 @@
+java -jar ./GENUS_section_allocation.jar

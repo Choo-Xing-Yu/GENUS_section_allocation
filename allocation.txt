@@ -1,0 +1,61 @@
+ALTO_ONE || maxPax(10)
+Augustine Kau Zhi Cong
+Cai Tian Xiang
+Zachary Ong Kai Jun
+Vu Hieu Nguyen
+Han Wei Tian
+Pang Shi Ying
+Natalie Sim Jiale
+Kwek Jo Ee
+Timothy Antoni
+Daniel Lew Jin Yih
+
+ALTO_TWO || maxPax(9)
+Elisha Lee Jian Xin
+Lin Wen
+Rachel Tay Kai Teng
+Saehyun Kim (Roy)
+Sheryl Chen
+Goh Zhi Yue
+Lim Feng Yue
+Grace Cheng Le Xin
+Ines Leow Yi Ting
+
+PRIME || maxPax(12)
+Ang Jing Xuan
+Chen Shao Wei
+Wong Wei Lun
+Yew Kai Zhe
+Frois Sean Michel
+Khoo Jing Xuan
+Teo Shi Hwei Rachel
+Jerlyn
+Tan Wei Han
+Tan Zhi Xiang
+Vishal Jeyaram
+Wang Runding
+
+BASS || maxPax(9)
+Choo Xing Yu
+Tan Yu Yi (Raine)
+Loh Xin Yi
+Stanley Jeremy
+Samuel Ryan Koh Peng Hock
+Yeo Yik Feng
+Moses Ang Le En
+Tan Yan Zhen Natalie
+
+CONTRABASS || maxPax(4)
+Chia Meng Hao Gideon Terence
+Gong Jiehui
+Hang Zelin
+Nicholas Koh Bao Zhi
+
+GUITARRON || maxPax(3)
+Lu Ziyi
+Ng Yao Min Yeoman
+Sean Tan
+
+UNALLOCATED (1)
+Wang Ziying
+

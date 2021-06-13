@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: com.xingyu.GENUS_section_allocation.Main
+

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GENUS_section_allocation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GENUS_section_allocation_jar</output-path>
+    <root id="archive" name="GENUS_section_allocation.jar">
+      <element id="module-output" name="GENUS_section_allocation" />
+    </root>
+  </artifact>
+</component>
