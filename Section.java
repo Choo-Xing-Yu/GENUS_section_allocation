@@ -16,9 +16,12 @@ public class Section {
     public final int numContrabassGuitar;
     public final int numGuitarron;
 
-    public static List<String> sections = List.of(Section.ALTO_ONE, Section.ALTO_TWO, Section.PRIME,
-            Section.BASS, Section.CONTRABASS, Section.GUITARRON);
+    // public static List<String> sections = List.of(Section.ALTO_ONE, Section.ALTO_TWO,
+    // Section.PRIME,
+    // Section.BASS, Section.CONTRABASS, Section.GUITARRON);
 
+    public static List<String> sections = List.of(Section.GUITARRON, Section.CONTRABASS,
+            Section.BASS, Section.PRIME, Section.ALTO_TWO, Section.ALTO_ONE);
 
     public static List<Set<String>> sectionFamilies =
             List.of(Set.of(Section.ALTO_ONE, Section.ALTO_TWO), Set.of(Section.PRIME),
