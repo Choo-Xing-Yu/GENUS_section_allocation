@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         List<Member> members = new ArrayList<>();
         boolean isHeader = true;
-        try (BufferedReader br = new BufferedReader(new FileReader("./test.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./21_22s1.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (isHeader) {

@@ -135,14 +135,27 @@ public class SectionAllocator {
         this.sectionToPax.put(Section.GUITARRON, this.numGuitarronMember);
     }
 
+
     public String allocate() throws Exception {
         for (Member m : this.members) {
-            this.altoOnePQ.add(m);
-            this.altoTwoPQ.add(m);
-            this.primePQ.add(m);
-            this.bassPQ.add(m);
-            this.contrabassPQ.add(m);
-            this.guitarronPQ.add(m);
+            if (m.choices.contains(Section.ALTO_ONE)) {
+                this.altoOnePQ.add(m);
+            }
+            if (m.choices.contains(Section.ALTO_TWO)) {
+                this.altoTwoPQ.add(m);
+            }
+            if (m.choices.contains(Section.PRIME)) {
+                this.primePQ.add(m);
+            }
+            if (m.choices.contains(Section.BASS)) {
+                this.bassPQ.add(m);
+            }
+            if (m.choices.contains(Section.CONTRABASS)) {
+                this.contrabassPQ.add(m);
+            }
+            if (m.choices.contains(Section.GUITARRON)) {
+                this.guitarronPQ.add(m);
+            }
         }
 
         for (String section : Section.sections) {
@@ -159,40 +172,43 @@ public class SectionAllocator {
         }
 
         List<Member> unallocatedMembers = new ArrayList<>();
-        while (!altoOnePQ.isEmpty()) {
-            // there exist someone who is unallocated
-            // doesn't really matter which PQ we use here
-            Member m = altoOnePQ.poll();
-            unallocatedMembers.add(m);
-            for (PriorityQueue<Member> pqs : this.listOfPQ) {
-                pqs.remove(m);
+        for (PriorityQueue<Member> pq : this.listOfPQ) {
+            while (!pq.isEmpty()) {
+                Member member = pq.poll();
+                if (!unallocatedMembers.contains(member)) {
+                    unallocatedMembers.add(member);
+                }
             }
         }
 
         String report = "";
-        String a1 = Section.ALTO_ONE + "(" + Integer.toString(this.numAltoOneMember) + ")" + "\n";
+        String a1 = Section.ALTO_ONE + " || maxPax(" + Integer.toString(this.numAltoOneMember) + ")"
+                + "\n";
         for (Member a1Players : this.allocations.get(Section.ALTO_ONE)) {
             a1 += a1Players.toString() + "\n";
         }
-        String a2 = Section.ALTO_TWO + "(" + Integer.toString(this.numAltoTwoMember) + ")" + "\n";
+        String a2 = Section.ALTO_TWO + " || maxPax(" + Integer.toString(this.numAltoTwoMember) + ")"
+                + "\n";
         for (Member a2Players : this.allocations.get(Section.ALTO_TWO)) {
             a2 += a2Players.toString() + "\n";
         }
-        String prime = Section.PRIME + "(" + Integer.toString(this.numPrimeMember) + ")" + "\n";
+        String prime =
+                Section.PRIME + " || maxPax(" + Integer.toString(this.numPrimeMember) + ")" + "\n";
         for (Member primePlayers : this.allocations.get(Section.PRIME)) {
             prime += primePlayers.toString() + "\n";
         }
-        String bass = Section.BASS + "(" + Integer.toString(this.numBassMember) + ")" + "\n";
+        String bass =
+                Section.BASS + " || maxPax(" + Integer.toString(this.numBassMember) + ")" + "\n";
         for (Member bassPlayers : this.allocations.get(Section.BASS)) {
             bass += bassPlayers.toString() + "\n";
         }
-        String contrabass =
-                Section.CONTRABASS + "(" + Integer.toString(this.numContrabassMember) + ")" + "\n";
+        String contrabass = Section.CONTRABASS + " || maxPax("
+                + Integer.toString(this.numContrabassMember) + ")" + "\n";
         for (Member contraPlayer : this.allocations.get(Section.CONTRABASS)) {
             contrabass += contraPlayer.toString() + "\n";
         }
-        String guitarron =
-                Section.GUITARRON + "(" + Integer.toString(this.numGuitarronMember) + ")" + "\n";
+        String guitarron = Section.GUITARRON + " || maxPax("
+                + Integer.toString(this.numGuitarronMember) + ")" + "\n";
         for (Member guitarronPlayer : this.allocations.get(Section.GUITARRON)) {
             guitarron += guitarronPlayer.toString() + "\n";
         }

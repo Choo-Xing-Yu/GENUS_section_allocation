@@ -56,14 +56,14 @@ public class Member {
         // 3) ability [0 - 10]
 
         // Weightage
-        // 30% - previousSectionWeight
-        double previousSectionWeight = 0.3;
+        // 50% - previousSectionWeight
+        double previousSectionWeight = 0.5;
 
-        // 40% - choicesWeight
-        double choicesWeight = 0.4;
+        // 50% - choicesWeight
+        double choicesWeight = 0.5;
 
-        // 30% - abilityWeight
-        double abilityWeight = 0.3;
+        // // 30% - abilityWeight
+        // double abilityWeight = 0.3;
 
         // =============================== choices ===============================
         double choicesPoint = 10 * choicesWeight;
@@ -75,13 +75,13 @@ public class Member {
         }
         // =============================== /choices ===============================
 
-        // =============================== ABILITY ===============================
-        double abilityPoint = ability * abilityWeight;
-        for (String section : Section.sections) {
-            Double prevPoint = this.points.get(section);
-            this.points.put(section, prevPoint + abilityPoint);
-        }
-        // =============================== /ABILITY ===============================
+        // // =============================== ABILITY ===============================
+        // double abilityPoint = ability * abilityWeight;
+        // for (String section : Section.sections) {
+        // Double prevPoint = this.points.get(section);
+        // this.points.put(section, prevPoint + abilityPoint);
+        // }
+        // // =============================== /ABILITY ===============================
 
         // =============================== PREVIOUS_SECTION ===============================
         double previousSectionSamePoint = 10 * previousSectionWeight;
