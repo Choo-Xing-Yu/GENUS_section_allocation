@@ -1,3 +1,5 @@
+package com.xingyu.GENUS_section_allocation;
+
 import java.util.*;
 
 public class Section {

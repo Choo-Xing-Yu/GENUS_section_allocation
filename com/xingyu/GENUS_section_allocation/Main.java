@@ -1,3 +1,5 @@
+package com.xingyu.GENUS_section_allocation;
+
 import java.io.*;
 import java.util.*;
 import java.math.*;
