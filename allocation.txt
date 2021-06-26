@@ -1,61 +1,50 @@
-ALTO_ONE || maxPax(10)
-Augustine Kau Zhi Cong
-Cai Tian Xiang
-Zachary Ong Kai Jun
+ALTO_ONE || maxPax(7)
+Daniel Lew
+Pang Shi Ying 
 Vu Hieu Nguyen
-Han Wei Tian
-Pang Shi Ying
+Augustine Kau
 Natalie Sim Jiale
 Kwek Jo Ee
-Timothy Antoni
-Daniel Lew Jin Yih
+Cai Tianxiang
 
-ALTO_TWO || maxPax(9)
-Elisha Lee Jian Xin
-Lin Wen
-Rachel Tay Kai Teng
-Saehyun Kim (Roy)
-Sheryl Chen
-Goh Zhi Yue
-Lim Feng Yue
-Grace Cheng Le Xin
+ALTO_TWO || maxPax(7)
 Ines Leow Yi Ting
+Lin Wen
+Lim Feng Yue
+Elisha Lee Jian Xin
+Grace Cheng
+Goh Zhi Yue
+Rachel Tay Kai Teng
 
-PRIME || maxPax(12)
-Ang Jing Xuan
-Chen Shao Wei
+PRIME || maxPax(9)
 Wong Wei Lun
-Yew Kai Zhe
-Frois Sean Michel
-Khoo Jing Xuan
-Teo Shi Hwei Rachel
-Jerlyn
-Tan Wei Han
-Tan Zhi Xiang
+Ng Jia Ling, Jerlyn
 Vishal Jeyaram
+Teo Shi Hwei Rachel 
+ANG JING XUAN
+Yew Kai Zhe
+Han Wei Tian
 Wang Runding
+Ng Yao Min Yeoman
 
-BASS || maxPax(9)
-Choo Xing Yu
+BASS || maxPax(7)
 Tan Yu Yi (Raine)
-Loh Xin Yi
-Stanley Jeremy
-Samuel Ryan Koh Peng Hock
-Yeo Yik Feng
 Moses Ang Le En
-Tan Yan Zhen Natalie
+Yeo Yik Feng
+Xingyu Choo
+Loh Xin Yi 
+Tan Yan Zhen, Natalie
+Khoo Jing Xuan 
 
-CONTRABASS || maxPax(4)
-Chia Meng Hao Gideon Terence
-Gong Jiehui
+CONTRABASS || maxPax(3)
+Gideon Chia
 Hang Zelin
-Nicholas Koh Bao Zhi
+Amelia Regina Sutikna
 
 GUITARRON || maxPax(3)
+Sean Tan Zhi Yuan
+Nicholas Koh
 Lu Ziyi
-Ng Yao Min Yeoman
-Sean Tan
 
-UNALLOCATED (1)
-Wang Ziying
+UNALLOCATED (0)
 
